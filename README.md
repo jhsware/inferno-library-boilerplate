@@ -3,18 +3,21 @@
 
 ## Quickstart
 
-1. Clone `inferno-library-boilerplate`
+1. Fork `inferno-library-boilerplate`
 
 2. Update all the package related info in `package.json`
 
 3. Add code to `/src` and tests to `/test`
 
-4. Release your library `npm version patch && npm publish`
+4. Choose a great name for your library and update `package.json` and probably your Git repos name aswell...
 
+5. Release your library `npm version patch && npm publish`
 
 ## HOWTOs
 
 [Introduction to porting a React library](./howto/porting_react_library.md)
+
+[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)
 
 ## Contributing
 
