@@ -5,6 +5,8 @@ module.exports = {
     usingJSDOM: true,
     usingJest: true
   },
-  setupTestFrameworkScriptFile: require.resolve("./JEST-DEBUG.js"),
+  setupFilesAfterEnv: [
+    require.resolve("./JEST-DEBUG.js")
+  ],
   testURL: "http://localhost/"
 }
