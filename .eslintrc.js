@@ -2,7 +2,7 @@ exports.root = true;
 
 exports.plugins = ['prettier'];
 
-exports.extends = ['standard', 'standard-react', 'prettier', 'prettier/react'];
+exports.extends = ['standard', 'prettier', 'prettier/react'];
 
 exports.parser = 'babel-eslint';
 
