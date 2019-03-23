@@ -1,0 +1,73 @@
+{
+  "name": "inferno-library",
+  "version": "0.1.0",
+  "description": "Boilerplate projekt to create infereno libraries",
+  "main": "dist/index.cjs.min.js",
+  "module": "lib/index.js",
+  "esnext": "src",
+  "sideEffects": [],
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhsware/inferno-library-boilerplate.git"
+  },
+  "keywords": [
+    "inferno",
+    "library",
+    "boilerplate"
+  ],
+  "author": "Sebastian Ware <sebastian@urbantalk.se> (https://github.com/jhsware)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhsware/inferno-library-boilerplate/issues"
+  },
+  "homepage": "https://github.com/jhsware/inferno-library-boilerplate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-syntax-jsx": "^7.2.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.0",
+    "@babel/preset-env": "7.4.2",
+    "babel-jest": "^24.5.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-inferno": "6.0.5",
+    "cross-env": "^5.2.0",
+    "inferno": "^7.1.10",
+    "inferno-test-utils": "^7.1.10",
+    "jest": "^24.5.0",
+    "jsdom": "^14.0.0",
+    "rollup": "^1.7.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-babel-minify": "^8.0.0",
+    "sinon": "^7.3.0"
+  },
+  "peerDependencies": {
+    "inferno": "=>7"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.2"
+  },
+  "scripts": {
+    "test": "npm run build:clean && cross-env NODE_ENV=development npm run build:es && cross-env NODE_ENV=development npm run build:dist && cross-env NODE_ENV=production npm run build:dist:prod && jest --forceExit",
+    "test-browser": "npm run build-test && node test/server.js",
+    "prepublish": "NODE_ENV=development npm run build",
+    "postversion": "git push && git push --tags",
+    "build-dev": "rm -rf ./dist && cross-env NODE_ENV=development babel lib --out-dir dist --watch --source-maps",
+    "build": "npm run build:es && npm run build:dist && npm run build:dist:prod & npm run build:legacy",
+    "build:clean": "rm -rf dist/ && rm -rf lib/",
+    "build:es": "cross-env NODE_ENV=development babel src --out-dir lib",
+    "build:dist": "cross-env NODE_ENV=development rollup -c",
+    "build:dist:prod": "cross-env NODE_ENV=production rollup -c",
+    "build:legacy": "cross-env NODE_ENV=production babel src --out-dir dist",
+    "prepare": "npm run build",
+    "precommit": "lint-staged",
+    "lint": "eslint --ext .js,.jsx src/ example/"
+  }
+}

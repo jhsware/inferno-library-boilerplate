@@ -1,0 +1,16 @@
+.DS_Store
+
+.git/
+test/
+src/
+
+# VS Code specific
+.vscode
+jsconfig.json
+typings/*
+typings.json
+
+# Dependency directory for NPM
+node_modules
+
+# We want to push dist to NPM
