@@ -82,4 +82,5 @@ Code style suggestions and linting is done with:
 If you don't want linting, you can remove them. If you want to change the coding style, modify the config.
 
 Stay strong, you've got this!!!
+
 Sebastian
